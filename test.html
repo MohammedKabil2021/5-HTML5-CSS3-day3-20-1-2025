@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fan Speed Control</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f0f0f0;
+      }
+
+      .fan {
+        border-radius: 50%;
+        animation-name: spinFan;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-play-state: running;
+        width: 200px;
+        height: 200px;
+      }
+
+      @keyframes spinFan {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      button {
+        width: 100px;
+        height: 50px;
+        margin: 10px;
+        font-size: 18px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Fan Speed Control</h1>
+    <img src="https://t4.ftcdn.net/jpg/02/91/24/27/240_F_291242770_z3XC7rJB1Mvc5jVMsEY9Dx2xMrX4sxUi.jpg" 
+         alt="fan" id="fan" class="fan" />
+    <br />
+    <button onclick="setSpeed(0)">Stop</button>
+    <button onclick="setSpeed(2)">Slow</button>
+    <button onclick="setSpeed(1)">Medium</button>
+    <button onclick="setSpeed(0.5)">Fast</button>
+
+    <script>
+      const fan = document.getElementById("fan");
+
+      function setSpeed(speed) {
+        if (speed === 0) {
+          fan.style.animationDuration = "0s"; // توقف المروحة
+        } else {
+          fan.style.animationDuration = `${speed}s`; // ضبط سرعة الدوران
+        }
+      }
+    </script>
+  </body>
+</html>

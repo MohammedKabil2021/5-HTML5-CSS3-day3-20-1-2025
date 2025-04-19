@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <style>
+    /*Task-1*/
+    img:hover {
+      transform: scale(1.5);
+    }
+
+    /*The End of Task-1*/
+
+
+    /*Task-2*/
+    button {
+      width: 100px;
+      height: 90px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .fan {
+      border-radius: 50%;
+      animation-name: spinFan;
+      /* animation-duration: 1s; */
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      /* animation-play-state: paused; */
+
+      width: 200px;
+      height: 200px;
+    }
+
+    @keyframes spinFan {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /*The End of Task-1*/
+
+    /*Task-3*/
+    .tooltip {
+      position: absolute;
+      background-color: rgba(161, 92, 92, 0.8);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 50px;
+
+    }
+
+    svg {
+      display: block;
+      margin: 50px auto;
+      border: 1px solid black;
+      width: 300px;
+      height: auto;
+    }
+
+    .organ {
+      cursor: pointer;
+    }
+
+    .organ:hover {
+      fill: #ff6347;
+    }
+  </style>
+</head>
+
+<body>
+  <!--Task-1-->
+  <h1>Task 1:</h1>
+  <div class="gallery">
+    <img src="https://t4.ftcdn.net/jpg/02/91/24/27/240_F_291242770_z3XC7rJB1Mvc5jVMsEY9Dx2xMrX4sxUi.jpg" alt="" />
+    <img src="https://t4.ftcdn.net/jpg/02/91/24/27/240_F_291242770_z3XC7rJB1Mvc5jVMsEY9Dx2xMrX4sxUi.jpg" alt="" />
+    <img src="https://t4.ftcdn.net/jpg/02/91/24/27/240_F_291242770_z3XC7rJB1Mvc5jVMsEY9Dx2xMrX4sxUi.jpg" alt="" />
+    <img src="https://t4.ftcdn.net/jpg/02/91/24/27/240_F_291242770_z3XC7rJB1Mvc5jVMsEY9Dx2xMrX4sxUi.jpg" alt="" />
+  </div>
+  <br />
+  <br />
+  <!--The End of Task-1-->
+
+  <!--Task-2-->
+  <h1>Task 2:</h1>
+  <img src="./fan.png" alt="fan" class="fan" id="fan" />
+  <button onclick="speed(0)">Stop</button>
+  <button onclick="speed(2)">1</button>
+  <button onclick="speed(1)">2</button>
+  <button onclick="speed(0.5)">3</button>
+  <!--The End of Task-2-->
+  <br />
+  <br />
+
+  <!--Task-3(1)-->
+  <h1>Task 3:</h1>
+
+  <svg style="border: 1px solid black; width: 500px; height:500px;">
+    <circle id="face" cx="250" cy="250" r="200" fill="#f7ead2" onmouseover="this.setAttribute('fill', 'green')"
+      onmouseout="this.setAttribute('fill', '#f7ead2')"></circle>
+    <circle id="left_Eye" cx="170" cy="220" r="40" fill="white" onmouseover="this.setAttribute('fill', 'green')"
+      onmouseout="this.setAttribute('fill', 'white')"></circle>
+    <circle id="nini_left_Eye" cx="170" cy="220" r="20" fill="black" onmouseover="this.setAttribute('fill', 'green')"
+      onmouseout="this.setAttribute('fill', 'black')"></circle>
+    <circle id="right_Eye" cx="340" cy="220" r="40" fill="white" onmouseover="this.setAttribute('fill', 'green')"
+      onmouseout="this.setAttribute('fill', 'white')"></circle>
+    <circle id="nini_right_Eye" cx="340" cy="220" r="20" fill="black" onmouseover="this.setAttribute('fill', 'green')"
+      onmouseout="this.setAttribute('fill', 'black')"></circle>
+    <circle id="nose" cx="255" cy="290" r="40" fill="#d1c1a3" onmouseover="this.setAttribute('fill', 'green')"
+      onmouseout="this.setAttribute('fill', '#d1c1a3')"></circle>
+    <circle id="mouse" cx="255" cy="390" r="40" fill="#d1c1a3" onmouseover="this.setAttribute('fill', 'green')"
+      onmouseout="this.setAttribute('fill', '#d1c1a3')"></circle>
+  </svg>
+
+
+  <!--Task-3(2)-->
+  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="150">
+
+    <circle class="organ" cx="100" cy="50" r="40" fill="#f7c9c9" data-organ="Head"></circle>
+    <rect class="organ" x="70" y="100" width="60" height="80" fill="#f2a482" data-organ="Chest"></rect>
+    <rect class="organ" x="70" y="200" width="60" height="100" fill="#9bc4cb" data-organ="Stomach"></rect>
+    <rect class="organ" x="20" y="110" width="30" height="70" fill="#f0d4b4" data-organ="Left Arm"></rect>
+    <rect class="organ" x="150" y="110" width="30" height="70" fill="#f0d4b4" data-organ="Right Arm"></rect>
+    <rect class="organ" x="70" y="320" width="25" height="100" fill="#d3a7a7" data-organ="Left Leg"></rect>
+    <rect class="organ" x="105" y="320" width="25" height="100" fill="#d3a7a7" data-organ="Right Leg"></rect>
+  </svg>
+  <div class="tooltip" id="tooltip"></div>
+  <!--The End of Task-3-->
+
+  <!--Task-4-->
+  <h1>Task 4:</h1>
+
+  <canvas id="canvasFace" width="400" height="400" style="border: 2px solid green;"></canvas>
+  <!--The End of Task-4-->
+
+
+  <script>
+    //Task-2
+    var fan = document.getElementById("fan");
+
+    function speed(speed) {
+      if (fan) {
+        if (speed === 0) {
+          fan.style.animationDuration = "0s";
+          fan.style.animationPlayState = "paused";
+        } else {
+          fan.style.animationDuration = `${speed}s`;
+          fan.style.animationPlayState = "running";
+        }
+      } else {
+        console.log("The fan element was not found.");
+      }
+    }
+    //The End of Task-2
+
+    //Task-3
+    var tooltip = document.getElementById('tooltip');
+    var organs = document.querySelectorAll('.organ');
+
+    organs.forEach(function (organ) {
+      organ.addEventListener('mouseover', function (event) {
+        tooltip.textContent = event.target.getAttribute('data-organ');
+        tooltip.style.display = 'block';
+      });
+
+      organ.addEventListener('mousemove', function (event) {
+        tooltip.style.left = event.pageX + 100 + 'px';
+        tooltip.style.top = event.pageY + 100 + 'px';
+      });
+
+      organ.addEventListener('mouseout', function () {
+        tooltip.style.display = 'none';
+      });
+    });
+    //The End of Task-3
+
+    //Task-4
+    var canva_Face = document.getElementById("canvasFace");
+
+    var context = canva_Face.getContext("2d");
+    console.log(context);
+
+    var sadFace = true;
+    function smile_Face() {
+      context.clearRect(0, 0, canva_Face.width, canva_Face.height);
+
+      context.beginPath();
+      context.arc(200, 200, 100, 0, 2 * Math.PI); // face
+      context.moveTo(160, 170);
+      context.arc(160, 170, 20, 0, 2 * Math.PI);
+      context.moveTo(240, 170);
+      context.arc(240, 170, 20, 0, 2 * Math.PI);
+      context.moveTo(150, 240);
+      context.quadraticCurveTo(200, 190, 250, 240);
+      // context.quadraticCurveTo(200, 290, 250, 240);
+      context.stroke();
+    }
+
+    function sad_Face() {
+      context.clearRect(0, 0, canva_Face.width, canva_Face.height);
+      context.beginPath();
+      context.arc(200, 200, 130, 0, 2 * Math.PI);
+      context.moveTo(140, 170);
+      context.arc(160, 170, 30, 0, 2 * Math.PI);
+      context.moveTo(220, 170);
+      context.arc(240, 170, 30, 0, 2 * Math.PI);
+      context.moveTo(150, 240);
+      // context.quadraticCurveTo(200, 190, 250, 240);
+      context.quadraticCurveTo(200, 290, 250, 240);
+      context.stroke();
+    }
+
+    canva_Face.addEventListener("click", function () {
+      if (sadFace) {
+        smile_Face();
+      } else {
+        sad_Face();
+      }
+      sadFace = !sadFace;
+    });
+
+    canva_Face.addEventListener("contextmenu", function (event) {
+      event.preventDefault()
+    });
+
+    canva_Face.addEventListener("mousedown", function (event) {
+      if (event.button === 0) {
+        smile_Face();
+        console.log('تم النقر بزر الفأرة الأيسر');
+      } else if (event.button === 2) {
+        context.clearRect(0, 0, canva_Face.width, canva_Face.height);
+        console.log('تم النقر بزر الفأرة الأيمن');
+      }
+    });
+
+    //The End of Task-4
+
+  </script>
+</body>
+
+</html>
